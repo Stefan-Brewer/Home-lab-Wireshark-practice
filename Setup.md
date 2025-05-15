@@ -7,7 +7,7 @@ Looking at malware, or analyzing packets containing malware on my private comput
 ## Installing Kali Linux
 
 To install Kali Linux, I went to the Kali website’s download page and chose [Virtual Machines](https://www.kali.org/get-kali/#kali-virtual-machines).There are a number of images available, all for different hypervisors. Since I am using VirtualBox, I chose that option. The download is a compressed folder that I had to extract. Once extracted, I simply ran VirtualBox, clicked on Add, and then selected the file I just extracted.  
-The VM has Kali pre-installed, so I didn’t even have to go through any installation process (unlike with the other two VMs in the screenshot.) With iso files, clicking on New instead would be better, as it gives more setup and install options.
+The VM has Kali pre-installed, so I didn’t even have to go through any installation process. With iso files, clicking on New instead would be better, as it gives more setup and install options. I did that for two other VMS (Win10 and Ubuntu).
 
 **Note**: I was initially not able to get any VMs to run because I had to enable SVM in the BIOS settings.
 
