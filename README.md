@@ -6,11 +6,11 @@ Setup
 
 Installed Oracle VirtualBox
 
-	Looking at malware, or analyzing packets containing malware on my private computer is a recipe for disaster, so let’s not do that. Instead, I’ll be using a virtual machine with Kali Linux installed. To use a virtual machine, I’ll first need a hypervisor. Luckily I already have Oracle VirtualBox installed. I got the Windows version from [their website’s Download page](https://www.virtualbox.org/wiki/Downloads). I installed it with default configurations.
+Looking at malware, or analyzing packets containing malware on my private computer is a recipe for disaster, so let’s not do that. Instead, I’ll be using a virtual machine with Kali Linux installed. To use a virtual machine, I’ll first need a hypervisor. Luckily I already have Oracle VirtualBox installed. I got the Windows version from [their website’s Download page](https://www.virtualbox.org/wiki/Downloads). I installed it with default configurations.
 
 Installing Kali Linux
 
-	To install Kali Linux, I went to the Kali website’s download page and chose [Virtual Machines](https://www.kali.org/get-kali/#kali-virtual-machines).There are a number of images available, all for different hypervisors. Since I am using VirtualBox, I chose that option. The download is a compressed folder that I had to extract. Once extracted, I simply ran VirtualBox, clicked on Add, and then selected the file I just extracted.  
+To install Kali Linux, I went to the Kali website’s download page and chose [Virtual Machines](https://www.kali.org/get-kali/#kali-virtual-machines).There are a number of images available, all for different hypervisors. Since I am using VirtualBox, I chose that option. The download is a compressed folder that I had to extract. Once extracted, I simply ran VirtualBox, clicked on Add, and then selected the file I just extracted.  
 The VM has Kali pre-installed, so I didn’t even have to go through any installation process (unlike with the other two VMs in the screenshot.) With iso files, clicking on New instead would be better, as it gives more setup and install options.
 
 **Note**: I was initially not able to get any VMs to run because I had to enable SVM in the BIOS settings.
@@ -22,7 +22,7 @@ I confirmed internet and DNS are working in the VM by running `ifconfig` and `pi
 
 Getting some packets
 
-	Kali linux has Firefox installed, so I’ll visit [Malware-Traffic-Analysis.net](http://Malware-Traffic-Analysis.net) from inside the VM and download some packets. After all, downloading them to my host machine isn’t going to work, as the host machine does not have Wireshark installed, and I don’t want packets that contain malware to be on my personal computer. They are just packets, so I’m sure it’s not something that poses any danger, but you never know.
+Kali linux has Firefox installed, so I’ll visit [Malware-Traffic-Analysis.net](http://Malware-Traffic-Analysis.net) from inside the VM and download some packets. After all, downloading them to my host machine isn’t going to work, as the host machine does not have Wireshark installed, and I don’t want packets that contain malware to be on my personal computer. They are just packets, so I’m sure it’s not something that poses any danger, but you never know.
 
 The Malware-Traffic-Analysis website has two types of posts:
 
