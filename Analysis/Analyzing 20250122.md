@@ -14,36 +14,36 @@ The exercise also gives information about the LAN segment from the pcap file, an
 
 I think that the easiest way to find this is through Statistics \>\> Conversations. If I look at the IPv4 conversations, then almost every conversation lists the IP 10.1.17.215, as you can see marked in yellow in the below screenshot:
 
-![image1](https://github.com/Stefan-Brewer/Home-lab-Wireshark-practice/blob/main/Pictures/20250122%2001.png)
+![image1](https://github.com/Stefan-Brewer/Home-lab-Wireshark-practice/blob/main/Pictures/20250122%2001.png)  
 
 A client is always included in it’s own conversations, and all the other IP addresses are the devices it is talking to.
 
 **What is the mac address of the infected Windows client?**
 
 We have the IP address, so we can right click on one of these conversations and select Apply as Filter \>\> Selected \>\> Filter on stream id, and then select a random packet.  
-![image2](https://github.com/Stefan-Brewer/Home-lab-Wireshark-practice/blob/main/Pictures/20250122%2002.png)
+![image2](https://github.com/Stefan-Brewer/Home-lab-Wireshark-practice/blob/main/Pictures/20250122%2002.png)  
 And then look at the packet’s Ethernet layer data:  
-![image3](https://github.com/Stefan-Brewer/Home-lab-Wireshark-practice/blob/main/Pictures/20250122%2003.png)
+![image3](https://github.com/Stefan-Brewer/Home-lab-Wireshark-practice/blob/main/Pictures/20250122%2003.png)  
 The source IP is 10.1.17.215, so that is the client. And if we look at the source MAC address, then we see that it is 00:d0:b7:26:4a:74.
 
 **What is the host name of the infected Windows client?**
 
 There are a number of ways to find the host name. First I’ll try to find it by searching for a DHCP packet. I can do that by simply entering dhcp into the search box of Wireshark. I found 4 packets, and if I look at the first one’s DHCP data packet, then there are a number of “Options”. Option (12) contains the host name, as you can see highlighted in yellow in the below screenshot:
 
-![image4](https://github.com/Stefan-Brewer/Home-lab-Wireshark-practice/blob/main/Pictures/20250122%2004.png)
+![image4](https://github.com/Stefan-Brewer/Home-lab-Wireshark-practice/blob/main/Pictures/20250122%2004.png)  
 
 The host name is DESKTOP-L8C5GSJ
 
 Other ways to find it is by looking for nbns (NetBIOS Name Service) packets:  
-![image5](https://github.com/Stefan-Brewer/Home-lab-Wireshark-practice/blob/main/Pictures/20250122%2005.png)
+![image5](https://github.com/Stefan-Brewer/Home-lab-Wireshark-practice/blob/main/Pictures/20250122%2005.png)  
 
 SMB packets:  
-![image6](https://github.com/Stefan-Brewer/Home-lab-Wireshark-practice/blob/main/Pictures/20250122%2006.png)
+![image6](https://github.com/Stefan-Brewer/Home-lab-Wireshark-practice/blob/main/Pictures/20250122%2006.png)  
 
 **What is the user account name from the infected Windows client?**
 
 I found the account name by searching for a AS-REQ kerberos packet:  
-![image7](https://github.com/Stefan-Brewer/Home-lab-Wireshark-practice/blob/main/Pictures/20250122%2007.png)
+![image7](https://github.com/Stefan-Brewer/Home-lab-Wireshark-practice/blob/main/Pictures/20250122%2007.png)  
 I was not able to find the username with any other methods.
 
 **What is the likely domain name for the fake Google Authenticator page?**
@@ -53,7 +53,7 @@ Since this is about a domain name, we should look at DNS requests. Simply put dn
 dns and \!(dns.qry.name contains "bluemoontuesday" or dns.qry.name contains "microsoft" or dns.qry.name contains "msft" or dns.qry.name contains "bing" or dns.qry.name contains "msn")
 
 This very quickly showed a number of suspicious domains from google-authenticator, which is what the client downloaded when they got infected. See below screenshot:  
-![image8](https://github.com/Stefan-Brewer/Home-lab-Wireshark-practice/blob/main/Pictures/20250122%2008.png)
+![image8](https://github.com/Stefan-Brewer/Home-lab-Wireshark-practice/blob/main/Pictures/20250122%2008.png)  
 The domain has unrelated extra text (burleson-appliance.net) or is misspelled (authenticatoor.org).
 
 The domain names that the fake Google authenticator app used was probably google-authenticator.burleson-appliance.net, which then may have redirected to the authenticatoor.org site.
