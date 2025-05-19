@@ -6,7 +6,7 @@ For this first pcap file, I’ll look at the [exercise posted on 2025-01-22](htt
 
 This exercise describes the following scenario:
 
-You work as an analyst at a Security Operation Center (SOC). Someone contacts your team to report a coworker has downloaded a suspicious file after searching for Google Authenticator. The caller provides some information similar to social media posts at:
+  You work as an analyst at a Security Operation Center (SOC). Someone contacts your team to report a coworker has downloaded a suspicious file after searching for Google Authenticator. The caller provides some information similar to social media posts at:
 
 * [https://www.linkedin.com/posts/unit42\_2025-01-22-wednesday-a-malicious-ad-led-activity-7288213662329192450-ky3V/](https://www.linkedin.com/posts/unit42_2025-01-22-wednesday-a-malicious-ad-led-activity-7288213662329192450-ky3V/)  
 * [https://x.com/Unit42\_Intel/status/1882448037030584611](https://x.com/Unit42_Intel/status/1882448037030584611)  
@@ -97,8 +97,8 @@ I asked Grok to roast my first report, and it gave me a lot of tips on what to l
   
 Here is a summary of Grok’s critique:  
   
-  **C2 Detection**: Look for high packet counts, unusual ports, and unencrypted protocols (HTTP for C2 is a red flag). Check TLS certificates for anomalies.
-  **DNS Analysis**: Focus on anomalies like low TTLs, suspicious TLDs, or domains that don’t match the expected service (e.g., burleson-appliance.net for Google Authenticator).
-  **Incident Reporting**: Use a clear structure—overview, infection vector, IoCs, analysis, and recommendations. Include actionable IoCs (IPs, domains, hashes).
-  **Threat Intel**: Cross-reference your findings with external sources (e.g., VirusTotal, threat feeds) to identify the malware and its TTPs.
+  **C2 Detection**: Look for high packet counts, unusual ports, and unencrypted protocols (HTTP for C2 is a red flag). Check TLS certificates for anomalies.  
+  **DNS Analysis**: Focus on anomalies like low TTLs, suspicious TLDs, or domains that don’t match the expected service (e.g., burleson-appliance.net for Google Authenticator).  
+  **Incident Reporting**: Use a clear structure—overview, infection vector, IoCs, analysis, and recommendations. Include actionable IoCs (IPs, domains, hashes).  
+  **Threat Intel**: Cross-reference your findings with external sources (e.g., VirusTotal, threat feeds) to identify the malware and its TTPs.  
   **Malware Analysis**: Export the malicious file from the pcap and analyze it in a sandbox to uncover more IoCs and behaviors.
